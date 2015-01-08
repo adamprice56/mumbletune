@@ -2,6 +2,8 @@
 
 MUMBLETUNE is a nice bot that connects to a mumble server and allows users to listen to Spotify together.
 
+This is my custom version, I will be adding a few extra features when i get the hang of ruby! :D
+
 ## Installation
 
 What you need:
