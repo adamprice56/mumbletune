@@ -1,14 +1,14 @@
 spotify:
-        appkey: "/path/to/spotify_appkey.key"
-        username: "sp_username"
-        password: "sp_password"
-        region: "us"
+        appkey: "/mumbletune/appkey.key"
+        username: "username"
+        password: "password"
+        region: "gb"
 mumble:
-        host: "mumble-server.example.com"
+        host: "127.0.0.1"
         port: 64738
-        username: "mumbletune"
-        password: "server_password"
+        username: "MumbleMusic"
+        password: ""
         channel: "Music Room"
 player:
-        default_volume: 60
+        default_volume: 20
         tracks_for_artist: 5

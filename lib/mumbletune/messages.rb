@@ -1,6 +1,7 @@
 require 'uri'
 require 'text'
 require 'mustache'
+require 'mumbletune/mumble_client'
 
 module Mumbletune
 
@@ -113,6 +114,10 @@ module Mumbletune
 					if message.argument.length == 0
 						message.respond "The volume is #{Mumbletune.mumble.volume}."
 					else
+						if message.argument.to_i > 20
+							message.argument = 20
+							message.respond "OI Stop pissing about!"
+						end
 						Mumbletune.mumble.volume = message.argument
 						message.respond "Now the volume is #{Mumbletune.mumble.volume}."
 					end
@@ -120,7 +125,18 @@ module Mumbletune
 				when /^help$/i
 					rendered = Mustache.render Message.template[:commands]
 					message.respond rendered
-
+				when /^reload$/i
+					message.respond "[Terminator] I'll be back..."
+					Mumbletune.shutdown
+				when /^reboot$/i
+					message.respond "[Terminator] I'll be back..."
+                                        Mumbletune.shutdown
+				when /^reconnect$/i
+					message.respond "[Terminator] I'll be back..."
+                                        Mumbletune.shutdown
+				when /^shutup$/i
+					message.respond "Too loud?"
+					Mumbletune.mumble.volume = 0
 				else # Unknown command was given.
 					rendered = Mustache.render Message.template[:commands],
 						:unknown => { :command => message.text }
